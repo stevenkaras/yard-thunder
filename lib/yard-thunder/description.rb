@@ -29,10 +29,12 @@ module YardThunder
       if parser.extra_state.thunder_desc
         usage, desc = *parser.extra_state.thunder_desc
         # drop in the description, if there is no "real" docstring
-        tags = @registered_object.tags
-        @registered_object.docstring = desc
-        tags.each { |tag| @registered_object.docstring.add_tag(tag) }
-        @registered_object.signature = usage
+        if @registered_object.docstring.to_s.strip.empty?
+          tags = @registered_object.tags
+          @registered_object.docstring = desc
+          tags.each { |tag| @registered_object.docstring.add_tag(tag) }
+        end
+        # @registered_object.signature = usage
 
         # add a second code object to describe the command line interface for this command
         @registered_object.namespace.groups << ["Thunder Commands"] unless @registered_object.namespace.groups.include? "Thunder Commands"
