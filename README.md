@@ -11,6 +11,8 @@ Usage
 
     yard --plugin thunder COMMANDS
 
+When you are writing your documentation, it's important to place any comments with YARDoc in them above the def of the method itself. This requires more knowledge of how YARD passes and handles comments than what I currently have.
+
 Goals
 -----
 Provide integration for Thunder CLI programs with YARD
