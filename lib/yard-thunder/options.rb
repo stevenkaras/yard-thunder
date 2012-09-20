@@ -1,7 +1,3 @@
-require 'logger'
-$log = Logger.new(STDERR)
-$log.info "hello, world"
-
 module YardThunder
   class OptionHandler < YARD::Handlers::Ruby::Base
     handles method_call(:option)

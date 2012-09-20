@@ -1,15 +1,11 @@
-
-require 'logger'
-$log = ::Logger.new(STDERR)
-$log.warn "starting logging"
-
 $: << File.expand_path("..", __FILE__)
 
 module YardThunder
 
   require 'yard-thunder/description'
   require 'yard-thunder/options'
-  # require 'yard-thunder/subcommand'
+  require 'yard-thunder/subcommand'
+  require 'yard-thunder/default_command'
 
   module ThunderMethodHandlerMixin
     def register(*objs)

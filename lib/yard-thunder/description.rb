@@ -28,12 +28,16 @@ module YardThunder
       # handle a command description for this method
       if parser.extra_state.thunder_desc
         usage, desc = *parser.extra_state.thunder_desc
-        require 'pry'; pry binding
+        # drop in the description, if there is no "real" docstring
+        tags = @registered_object.tags
         @registered_object.docstring = desc
+        tags.each { |tag| @registered_object.docstring.add_tag(tag) }
         @registered_object.signature = usage
+
+        # add a second code object to describe the command line interface for this command
         @registered_object.namespace.groups << ["Thunder Commands"] unless @registered_object.namespace.groups.include? "Thunder Commands"
-        @registered_object.group = "Thunder Commands"
-        @registered_object.docstring.add_tag YARD::Tags::Tag.new(:thunder_command, '')
+        # @registered_object.group = "Thunder Commands"
+        # @registered_object.docstring.add_tag YARD::Tags::Tag.new(:thunder_command, '')
         parser.extra_state.thunder_desc = nil
       end
     end
