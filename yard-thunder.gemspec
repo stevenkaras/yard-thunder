@@ -1,4 +1,4 @@
-require File.expand_path("../lib/yard-thunder/version", __FILE__)
+require File.expand_path("../lib/yard_thunder/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.version     = YardThunder::VERSION

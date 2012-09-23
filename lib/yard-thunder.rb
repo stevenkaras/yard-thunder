@@ -5,10 +5,10 @@ $: << File.expand_path("..", __FILE__)
 #
 module YardThunder
 
-  require 'yard-thunder/description'
-  require 'yard-thunder/options'
-  require 'yard-thunder/subcommand'
-  require 'yard-thunder/default_command'
+  require 'yard_thunder/description'
+  require 'yard_thunder/options'
+  require 'yard_thunder/subcommand'
+  require 'yard_thunder/default_command'
 
   # mixin for storing the latest registered object
   module ThunderMethodHandlerMixin
